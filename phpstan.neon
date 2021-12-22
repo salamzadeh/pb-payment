@@ -1,0 +1,9 @@
+parameters:
+	paths:
+		- %currentWorkingDirectory%
+	excludes_analyse:
+		- %currentWorkingDirectory%/vendor
+		- %currentWorkingDirectory%/database
+	level: 1
+	ignoreErrors:
+

@@ -1,0 +1,68 @@
+{
+    "name": "salamzadeh/pb-payment",
+    "description": "a Laravel package to handle Internet Payment Gateways for Iran Banking System",
+    "type": "library",
+    "homepage": "https://github.com/salamzadeh/pb-payment",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "iran",
+        "payment",
+        "gateway",
+        "merchant",
+        "purchase",
+        "bank",
+        "banking",
+        "payment system",
+        "pay",
+        "saman",
+        "sadad",
+        "meli",
+        "sep",
+        "pay.ir",
+        "zarinpal",
+        "payping"
+    ],
+    "authors": [
+        {
+            "name": "Sasan Salamzadeh",
+            "homepage": "https://github.com/salamzadeh"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-soap": "*",
+        "illuminate/support": "~5.7|~6.0|~7.0|8.*",
+        "illuminate/database": "~5.7|~6.0|~7.0|8.*",
+        "illuminate/http": "~5.7|~6.0|~7.0|8.*",
+        "nesbot/carbon": "*",
+        "doctrine/dbal": "^2.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "fzaninotto/faker": "^1.4",
+        "phpstan/phpstan": "^0.12.0@dev",
+        "orchestra/testbench": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Salamzadeh\\PBPayment\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Salamzadeh\\PBPayment\\PBPaymentServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
