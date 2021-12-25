@@ -369,7 +369,7 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
             throw GatewayException::unknownResponse(json_encode($result));
         }
 
-        if ($result->Status !== 100 || $result->Status !== 101) {
+        if ($result->Status !== 100 && $result->Status !== 101) {
             throw ZarinpalException::error($result->Status);
         }
 

@@ -158,6 +158,16 @@ trait TransactionData
     }
 
     /**
+     * Get Transaction Status Text function
+     *
+     * @return string
+     */
+    public function getTransactionStatusText()
+    {
+        return isset($this->transaction) ? $this->transaction->status_text : "نامعلوم";
+    }
+
+    /**
      * Get Transaction Reference Number function
      *
      * @return int
