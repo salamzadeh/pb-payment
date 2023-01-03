@@ -16,18 +16,19 @@ Accepting [Sadad (Melli)](https://sadadpsp.ir/), [Pay.ir](https://pay.ir/), [Zar
 
 ## Gateways
 
-Gateway | Description  | Available | Tested | Last Update
---- | --- | --- | --- | ---
-[Sadad (Melli)](https://sadadpsp.ir/) | بانک ملی (سداد) | ✓ | ✓ | 2021/12/22
-[Pay.ir](https://pay.ir/) | پرداخت پی | ✓ | ✓ | 2021/12/22
-[Zarinpal](https://zarinpal.com/) | زرین پال | ✓ | ✓ | 2021/12/22
-[Payping](https://www.payping.ir/) | پی پینگ | ✓ | - | 2021/12/22
+Gateway | Description                         | Available | Tested | Last Update
+--- |-------------------------------------| --- | --- | ---
+[Sadad (Melli)](https://sadadpsp.ir/) | بانک ملی (سداد)                     | ✓ | ✓ | 2021/12/22
+[Pay.ir](https://pay.ir/) | پرداخت پی                           | ✓ | ✓ | 2021/12/22
+[Zarinpal](https://zarinpal.com/) | زرین پال                            | ✓ | ✓ | 2023/01/03
+[Sizpay](https://sizpay.ir/) | سیز پی                               | ✓ | ✓ | 2023/01/03
+[Payping](https://www.payping.ir/) | پی پینگ                             | ✓ | - | 2021/12/22
 [Qeroun](https://qeroun.com/) | قرون - خرید امن با ایجاد توافق‌نامه | - | - | -
-[Saman (Sep)](https://www.sep.ir/) | (سپ) بانک سامان | ✓ | - | 2021/12/22
-[Mellat (Behpardakht)](http://www.behpardakht.com/) | (به پرداخت) بانک ملت | - | - | -
-[Parsian (Pec)](https://www.pec.ir/) | (پک) بانک پارسیان | - | - | -
-[Pasargad (Pep)](https://www.pep.co.ir/) | (پپ) بانک پاسارگاد | - | - | -
-[Zibal](https://zibal.ir/) | زیبال | - | - | -
+[Saman (Sep)](https://www.sep.ir/) | (سپ) بانک سامان                     | ✓ | - | 2021/12/22
+[Mellat (Behpardakht)](http://www.behpardakht.com/) | (به پرداخت) بانک ملت                | - | - | -
+[Parsian (Pec)](https://www.pec.ir/) | (پک) بانک پارسیان                   | - | - | -
+[Pasargad (Pep)](https://www.pep.co.ir/) | (پپ) بانک پاسارگاد                  | - | - | -
+[Zibal](https://zibal.ir/) | زیبال                               | - | - | -
 
 ## Requirements
 
@@ -41,14 +42,14 @@ Gateway | Description  | Available | Tested | Last Update
 1. Add the package to your composer file via the `composer require` command:
    
    ```bash
-   $ composer require salamzadeh/pb-payment:^1.0
+   $ composer require salamzadeh/pb-payment:^1.2.0
    ```
    
    Or add it to `composer.json` manually:
    
    ```json
    "require": {
-       "salamzadeh/pb-payment": "^1.0"
+       "salamzadeh/pb-payment": "^1.2.0"
    }
    ```
 

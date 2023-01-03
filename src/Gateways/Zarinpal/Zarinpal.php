@@ -64,6 +64,13 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
      */
     private bool $add_fees = false;
 
+    /**
+     * Add Card Pan variable
+     *
+     * @var string
+     */
+    private string $card_pan = "";
+
 	/**
 	 * Gateway Name function
 	 *
@@ -164,6 +171,29 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
     public function getRefId(): ?string
     {
         return $this->ref_id;
+    }
+
+    /**
+     * Set Card Pan function
+     *
+     * @param string $card_pan
+     * @return $this
+     */
+    public function setCardPan(string $card_pan): self
+    {
+        $this->card_pan = $card_pan;
+
+        return $this;
+    }
+
+    /**
+     * Get Card Pan function
+     *
+     * @return string|null
+     */
+    public function getCardPan(): ?string
+    {
+        return $this->card_pan;
     }
 
     /**
@@ -287,9 +317,9 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
      * @return string
      * @throws InvalidDataException
      */
-	public function purchaseUri(): string
-	{
-	    switch ($this->getType()) {
+    public function purchaseUri(): string
+    {
+        switch ($this->getType()) {
             case 'normal':
                 $url = self::WEB_GATE_URL;
                 break;
@@ -306,7 +336,7 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
         }
 
         return str_replace('{Authority}', $this->getReferenceNumber(), $url);
-	}
+    }
 
     /**
      * Purchase View Params function
@@ -337,23 +367,23 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
         }
 
         $this->setAuthority($this->getReferenceNumber());
-	}
+    }
 
     /**
      * @throws GatewayException
      * @throws ZarinpalException
      * @throws TransactionFailedException
      */
-	public function verify(): void
-	{
-		$fields = [
-			'MerchantID' => $this->getMerchantId(),
-			'Authority' => $this->getAuthority(),
-			'Amount' => $this->preparedAmount(),
-		];
+    public function verify(): void
+    {
+        $fields = [
+            'MerchantID' => $this->getMerchantId(),
+            'Authority' => $this->getAuthority(),
+            'Amount' => $this->preparedAmount(),
+        ];
 
-		try {
-			$soap = new SoapClient(self::WSDL_URL, [
+        try {
+            $soap = new SoapClient(self::WSDL_URL, [
                 'encoding' => 'UTF-8',
                 'trace' => 1,
                 'exceptions' => 1,
@@ -378,12 +408,15 @@ class Zarinpal extends AbstractGateway implements GatewayInterface
         }
 
         $this->setRefId($result->RefID);
-	}
+        if(isset($result->card_pan))
+            $this->setCardPan($result->card_pan);
+    }
 
-	protected function postVerify(): void
+    protected function postVerify(): void
     {
         $this->transactionUpdate([
             'tracking_code' => $this->getRefId(),
+            'card_number' => $this->getCardPan(),
         ]);
 
         parent::postVerify();

@@ -11,6 +11,7 @@ use Salamzadeh\PBPayment\Gateways\Sadad\Sadad;
 use Salamzadeh\PBPayment\Gateways\PayPing\PayPing;
 use Salamzadeh\PBPayment\Gateways\Test\TestGateway;
 use Salamzadeh\PBPayment\Gateways\Zarinpal\Zarinpal;
+use Salamzadeh\PBPayment\Gateways\Sizpay\Sizpay;
 
 use Salamzadeh\PBPayment\Exceptions\GatewayNotFoundException;
 
@@ -29,6 +30,7 @@ class PBPayment
     const PAYDOTIR  = 'pay.ir';
     const ZARINPAL  = 'zarinpal';
     const PAYPING   = 'payping';
+    const SIZPAY      = 'sizpay';
     const TEST      = 'test';
 
     /**
@@ -86,6 +88,10 @@ class PBPayment
             case PayPing::class:
                 $this->gateway = new PayPing;
                 break;
+            case self::SIZPAY:
+            case Sizpay::class:
+                $this->gateway = new Sizpay;
+                break;
             case self::TEST:
             case TestGateway::class:
                 if (app('config')->get('app.env', 'production') == 'production')
@@ -133,6 +139,7 @@ class PBPayment
             self::SADAD,
             self::PAYIR,
             self::PAYPING,
+            self::SIZPAY,
         ];
 
         if (app('config')->get('app.env', 'production') !== 'production') {

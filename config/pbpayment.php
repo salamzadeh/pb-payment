@@ -93,4 +93,17 @@ return [
         'add_fees' => false,
         // 'callback-url' => 'http://example.com/payments/payping/callback',
     ],
+    /*
+    |--------------------------------------------------------------------------
+    | Sizpay gateway
+    |--------------------------------------------------------------------------
+    */
+    'sizpay' => [
+        'merchant_id'  => env('SIZPAY_MERCHANT_ID',  'xxxxxxxx'),
+        'terminal_id'  => env('SIZPAY_TERMINAL_ID',  'xxxxxxxx'),
+        'username' => env('SIZPAY_USERNAME', 'xxxxxxxx'),
+        'password'     => env('SIZPAY_PASSWORD', ''),
+        'sign_data'     => env('SIZPAY_SIGN_DATA', ''),
+        // 'callback-url' => 'http://example.com/payments/sizpay/callback',
+    ],
 ];
